@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import data from '../helpers/data.json'
 import './job-home.css'
-import deleteButtom from '../images/icon-remove.svg'
+
+import { Categories } from '../components/Categories'
+import { Jobs } from '../components/Jobs'
 
 export const JobHome = () => {
 
@@ -63,43 +65,13 @@ const deleteJob = (trabajo) => {
 
 }
 
-
   return (
         <div className='listing-job-filter-container'>
-            <div className='filtros-container'>
-                <div className='filtro'>
-                    {categorie.map((ele, index) => (
-                        <div className='categoria' key={index}>
-                            <h1 >{ele}</h1>
-                           {/*  <button >eliminar categoria</button> */}
-                            <img className='delete-button' src={deleteButtom} onClick={() => deleteJob(ele)} alt="" />
-                        </div>
-                    ))}
-                    {
-                        categorie.length > 0 ? <button className='clear' onClick={deleteFilter}>clear</button>:''
-                    }
-                </div>
-               
-            </div>
-           
 
-            <div className='jobs-container'>
-                {
-                    jobs.map(({id,company, contract, languages,tools,level,role}) => (
-                        <div className='job'key={id}>
-                            <h1>{company}</h1>
-                            <h2>{contract}</h2> 
-                            <button onClick={() => jobSelect(level)}>{level}</button>
-                            <button onClick={() => jobSelect(role)}> {role}</button>
-                            {
-                            languages.concat(tools).map((ele, index) => (
-                                    <button onClick={() => jobSelect(ele)} key={index}>{ele}</button>
-                            ))
-                            }
-                        </div>
-                    ))
-                }
-            </div>
+            <Categories categorie={categorie} deleteJob={deleteJob} deleteFilter={deleteFilter}/>
+           
+            <Jobs jobs={jobs} jobSelect={jobSelect}/>
+
         </div>
   )
 }
