@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import data from '../helpers/data.json'
-console.log(data)
+import './job-home.css'
+import deleteButtom from '../images/icon-remove.svg'
 
 export const JobHome = () => {
 
@@ -32,7 +33,7 @@ const deleteFilter = () => {
 }
 
 const deleteJob = (trabajo) => {
-    if(categorie.length < 2) setJobs(data)
+   /*  if(categorie.length < 1) setJobs(data) */
   
    let filterCategories =  categorie.filter(valor => valor!== trabajo)
   
@@ -41,6 +42,8 @@ const deleteJob = (trabajo) => {
 
         data.forEach((elemento) => {
             let concatenados = elemento.languages.concat(elemento.tools).concat(elemento.level).concat(elemento.role)
+            console.log(filterCategories)
+            console.log(concatenados)
 
         let contador = 0
         for (let i = 0; i < filterCategories.length; i++) {
@@ -62,23 +65,28 @@ const deleteJob = (trabajo) => {
 
 
   return (
-        <>
-            <div>
-                {categorie.map((ele, index) => (
-                    <div key={index}>
-                        <h1 >{ele}</h1>
-                        <button onClick={() => deleteJob(ele)}>eliminar categoria</button>
-                    </div>
-                ))}
+        <div className='listing-job-filter-container'>
+            <div className='filtros-container'>
+                <div className='filtro'>
+                    {categorie.map((ele, index) => (
+                        <div className='categoria' key={index}>
+                            <h1 >{ele}</h1>
+                           {/*  <button >eliminar categoria</button> */}
+                            <img className='delete-button' src={deleteButtom} onClick={() => deleteJob(ele)} alt="" />
+                        </div>
+                    ))}
+                    {
+                        categorie.length > 0 ? <button className='clear' onClick={deleteFilter}>clear</button>:''
+                    }
+                </div>
+               
             </div>
-            {
-                categorie.length > 0 ? <button onClick={deleteFilter}>eliminar filtros</button>:''
-            }
+           
 
-            <div style={{display: 'flex', flexWrap:'wrap', gap:'1rem', justifyContent:'center'}}>
+            <div className='jobs-container'>
                 {
-                    jobs.map(({id,company, contract, languages,tools,level,role}, index) => (
-                        <div style={{border: 'solid cyan 2px', padding:'.5rem'}} key={id}>
+                    jobs.map(({id,company, contract, languages,tools,level,role}) => (
+                        <div className='job'key={id}>
                             <h1>{company}</h1>
                             <h2>{contract}</h2> 
                             <button onClick={() => jobSelect(level)}>{level}</button>
@@ -92,7 +100,7 @@ const deleteJob = (trabajo) => {
                     ))
                 }
             </div>
-        </>
+        </div>
   )
 }
 
