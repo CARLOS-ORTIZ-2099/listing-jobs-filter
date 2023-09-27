@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import deleteButtom from '../images/icon-remove.svg'
+import deleteButtom from '../../public/images/icon-remove.svg'
 export const Categories = ({categorie, deleteJob, deleteFilter}) => {
   return (
     
