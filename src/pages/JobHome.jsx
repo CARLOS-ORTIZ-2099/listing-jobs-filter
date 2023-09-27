@@ -61,13 +61,10 @@ const deleteJob = (trabajo) => {
         }) 
    
     setJobs(arrayAuxiliar)
-
-
 }
 
   return (
         <div className='listing-job-filter-container'>
-
             <Categories categorie={categorie} deleteJob={deleteJob} deleteFilter={deleteFilter}/>
            
             <Jobs jobs={jobs} jobSelect={jobSelect}/>

@@ -61,6 +61,7 @@ The designs were created to the following widths:
    background-size: 100% 100%;
    background-position: center center;
    position: relative;
+   background-color: var(--primary-color);
 }
 
 .filtro{
@@ -74,7 +75,7 @@ The designs were created to the following widths:
     justify-content: space-around;
     padding: .5rem;
     background-color: var(--tertiary-color);
-
+    border-radius: 5px;
     box-shadow: -5px 10px 15px rgba(0, 0, 0, .7);
 }
 
@@ -134,5 +135,118 @@ The designs were created to the following widths:
     border-radius: 5px;
     box-shadow: -15px 15px 10px rgba(0, 0, 0, .7);
     padding: 1rem;
+    /* border: solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.child1 {
+   /*  border:  solid cyan 1px; */
+    display: flex;
+    padding: .5rem;
+    gap: .7rem;
+}
+.child1 span {
+    color: var(--auxiliar-color);
+}
+
+.child1 h2{
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.child2{
+    /* border: solid green 1px; */
+    
+}
+
+
+.child2 button {
+    margin-left: 10px;
+    border: solid transparent;
+    color: var(--primary-color);
+    font-weight: bold;
+    background-color: rgb(193, 219, 214);
+    transition: all ease-in-out .5s ;
+    font-size: small;
+    
+}
+
+.child2 button:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: .5s;
+}
+
+
+
+@media screen and (min-width:700px) and (max-width:1000px) {
+        
+    .job{
+        width: 80%;
+
+    }
+    .child2 button {
+        margin-left: 10px;
+        margin-top: 10px;
+        
+    }
+
+}
+
+@media screen and (max-width:500px) {
+            
+    .job{
+        padding: 2rem;
+        /* border: solid red; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 70%;
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    .child1 span{
+        margin-top: 2rem;
+        display: inline-block;
+        margin: 2rem 0px 5px;
+    }
+
+    .child2{
+        border-top: solid black 1px;
+    }
+    
+    .child2 button{
+        margin: 4px;
+    }
+    .job img{
+        position: absolute;
+        top: -15%;
+        left: 8%;
+        width: 60px;
+        
+    }
+    .jobs-container{
+        margin-top: 7rem;
+       /*  border: solid red 2px; */
+    }
+
+    .filtro{
+        /* background-color: yellow; */
+        width: 70%;
+        padding: 1rem;
+        left: 10%;
+        
+    }
+
+    .filtro div,button{
+        margin: 7px;
+        
+    }
+   
+
+}
