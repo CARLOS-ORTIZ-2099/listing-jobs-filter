@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-
 export const Jobs = ({jobs, jobSelect}) => {
   return (
 

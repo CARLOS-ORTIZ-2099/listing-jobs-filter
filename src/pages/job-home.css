@@ -76,7 +76,7 @@ The designs were created to the following widths:
     padding: .5rem;
     background-color: var(--tertiary-color);
     border-radius: 5px;
-    box-shadow: -5px 10px 15px rgba(0, 0, 0, .7);
+    box-shadow: -5px 10px 15px rgba(0, 0, 0, .7);      
 }
 
 .delete-button {
@@ -124,6 +124,7 @@ The designs were created to the following widths:
     align-items: center;
     gap: 1rem;
     padding: 1.5rem 0;
+   
 }
 
 
