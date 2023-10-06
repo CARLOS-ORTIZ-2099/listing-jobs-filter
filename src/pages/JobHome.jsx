@@ -17,13 +17,17 @@ const jobSelect = (e) => {
     }
 
     console.log(e)
-    let filterJob = jobs.filter(({languages, tools,level,role}) => 
-    /* por cada recorrido me topo con un objeto y a cada objeto lo destructuro con las propiedades especificas
-       y a todos ellos los concateno es decir los pongo en un array comun, es decir por cada recorrido que haga 
-       creo un array comun para cada objeto y evaluo si en ese array comun esta incluido la categoria que el
-       usuario valla seleccionando 
-    */
-            languages.concat(tools).concat(level).concat(role).includes(e))
+
+    let filterJob = jobs.filter(({languages, tools,level,role}) => {
+        /* por cada recorrido me topo con un objeto y a cada objeto lo destructuro con las propiedades especificas
+        y a todos ellos los concateno es decir los pongo en un array comun, es decir por cada recorrido que haga 
+        creo un array comun para cada objeto y evaluo si en ese array comun esta incluido la categoria que el
+        usuario valla seleccionando 
+        */
+       console.log(languages.concat(tools).concat(level).concat(role))
+       return languages.concat(tools).concat(level).concat(role).includes(e)
+    }
+    )
     setJobs(filterJob)
     console.log(filterJob)
     console.log(categorie)
@@ -33,6 +37,7 @@ const deleteFilter = () => {
    setJobs(data)
    setCategorie([])
 }
+
 
 const deleteJob = (trabajo) => {
    /*  if(categorie.length < 1) setJobs(data) */
@@ -47,21 +52,20 @@ const deleteJob = (trabajo) => {
             console.log(filterCategories)
             console.log(concatenados)
 
-        let contador = 0
-        for (let i = 0; i < filterCategories.length; i++) {
-                concatenados.some(e => e == filterCategories[i])? contador++:''
-            
-        }
-        if(contador == filterCategories.length){
-                arrayAuxiliar.push(elemento)
-        }
-
-        
+            let contador = 0
+            for (let i = 0; i < filterCategories.length; i++) {
+                    concatenados.some(e => e == filterCategories[i])? contador++:''
+                
+            }
+            if(contador == filterCategories.length){
+                    arrayAuxiliar.push(elemento)
+            }
 
         }) 
    
     setJobs(arrayAuxiliar)
 }
+
 
   return (
         <div className='listing-job-filter-container'>

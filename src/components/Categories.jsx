@@ -18,10 +18,8 @@ export const Categories = ({categorie, deleteJob, deleteFilter}) => {
                           </div>
                       ))}
 
-                      {
-                          categorie.length > 0 ? <button className='clear' onClick={deleteFilter}>clear</button>:''
-                      }
-
+                        <button className='clear' onClick={deleteFilter}>clear</button>
+                    
                 </div>
               )
            }
