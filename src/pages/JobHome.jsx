@@ -61,9 +61,10 @@ const deleteJob = (trabajo) => {
         /* luego preguntamos si el contador es igual a la longitud del array, esto a que si hay algun trabajo que cumpla con 
            todos los filtros, el contador aumentara tantas veces como filtros tenga en el array de filtros y se insertara ese
            trabajo en el array auxiliar, ahora debemos de tener algo en cuenta que cuando eliminemos todos los filtros nuestro
-           contador sera cero, ya que como no hay filtros no hay nada que evaluar en el array de trabajos y la longitud del 
-           array auxiliar sera 0, y como la longitud coincide con el el numero del contador que es 0, se insertaran todos los 
-           trabajos y setearemos el estado setJobs con ese arrayauxiliar
+           contador sera cero, ya que como no hay filtros el bucle no se ejecutara ya que la longitud del array de filtros es 
+           igual a 0 y por ende no hay nada que evaluar en el array de trabajos , y como la longitud del arreglo de filtros 
+           coincide con el el numero del contador que es 0, se insertaran todos los 
+           trabajos de data al arrayAuxiliar y setearemos el estado setJobs con ese arrayAuxiliar
         */    
             if(contador == filterCategories.length){
                     arrayAuxiliar.push(elemento)
