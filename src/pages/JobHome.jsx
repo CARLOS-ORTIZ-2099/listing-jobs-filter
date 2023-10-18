@@ -43,7 +43,7 @@ const deleteJob = (trabajo) => {
    /*  if(categorie.length < 1) setJobs(data) */
   
    let filterCategories =  categorie.filter(valor => valor!== trabajo)
-  
+   
   let arrayAuxiliar = []
   setCategorie(filterCategories)
 
@@ -51,18 +51,26 @@ const deleteJob = (trabajo) => {
             let concatenados = elemento.languages.concat(elemento.tools).concat(elemento.level).concat(elemento.role)
             console.log(filterCategories)
             console.log(concatenados)
-
+        /*  creamos un contador y recorremos el array de filtros y preguntamos si hay algun trabajo(objeto del array principal) 
+            que contenga en sus caracteres ese filtro y si es asi el contador aumenta en 1*/
             let contador = 0
             for (let i = 0; i < filterCategories.length; i++) {
                     concatenados.some(e => e == filterCategories[i])? contador++:''
                 
             }
+        /* luego preguntamos si el contador es igual a la longitud del array, esto a que si hay algun trabajo que cumpla con 
+           todos los filtros, el contador aumentara tantas veces como filtros tenga en el array de filtros y se insertara ese
+           trabajo en el array auxiliar, ahora debemos de tener algo en cuenta que cuando eliminemos todos los filtros nuestro
+           contador sera cero, ya que como no hay filtros no hay nada que evaluar en el array de trabajos y la longitud del 
+           array auxiliar sera 0, y como la longitud coincide con el el numero del contador que es 0, se insertaran todos los 
+           trabajos y setearemos el estado setJobs con ese arrayauxiliar
+        */    
             if(contador == filterCategories.length){
                     arrayAuxiliar.push(elemento)
             }
 
         }) 
-   
+    console.log(arrayAuxiliar)
     setJobs(arrayAuxiliar)
 }
 
